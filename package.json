@@ -1,0 +1,19 @@
+{
+  "name": "who_is",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha test/ --exit",
+    "start": "node index.js --mode file --input domains.txt"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "bluebird": "^3.5.1",
+    "chai": "^4.1.2",
+    "sinon": "^6.1.4",
+    "whois": "^2.6.0"
+  }
+}
