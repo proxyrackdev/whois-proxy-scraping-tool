@@ -27,7 +27,7 @@ describe('Searcher', () => {
       searcher.start();
     });
 
-    it('should show progress', done => {
+    it('should count progress', done => {
       const searcher = new Searcher({
 	domains: ['domain1']
       });
