@@ -55,6 +55,70 @@ describe('Searcher', () => {
       searcher.start();
     });
 
+    it('should emit whoisResponse on success', done => {
+      search = sinon.stub();
+      search.onCall(0).resolves('response');
+      const searcher = new Searcher({
+	domains: ['domain']
+      });
+      searcher.on('whoisResponse', response => {
+	expect('response').to.equal(response.response);
+	expect('domain').to.equal(response.domain);
+	expect(undefined).to.equal(response.error);
+	done();
+      });
+      searcher.start();
+    });
+
+    it('should emit whoisResponse on error with error field', done => {
+      const err = new Error('err');
+      search = sinon.stub().rejects(err);
+      const searcher = new Searcher({domains: ['domain']});
+      searcher.on('whoisResponse', response => {
+	expect(undefined).to.equal(response.response);
+	expect('domain').to.equal(response.domain);
+	expect(err).to.equal(response.error);
+	done();
+      });
+      searcher.start();
+    });
+
+  });
+
+  describe('countTime', () => {
+    let clock;
+    beforeEach(() => {
+      clock = sinon.useFakeTimers();
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('should count elapsedTime', done => {
+      search = sinon.stub().usingPromise(Promise).resolves();
+      const searcher = new Searcher({domains: new Array(10)});
+      search.onCall(3).callsFake(() => {
+	clock.tick(10 * 1000);
+	const progress = searcher.getProgress();
+	expect(10 * 1000).to.equal(progress.elapsedTime);
+	done();
+      });
+      searcher.start();
+    });
+
+    it('should calculate remainingTime', done => {
+      search = sinon.stub().usingPromise(Promise).resolves();
+      const searcher = new Searcher({domains: new Array(10)});
+      search.onCall(4).callsFake(() => {
+	clock.tick(10 * 1000);
+	const progress = searcher.getProgress();
+	expect(15000).to.equal(progress.remainingTime);
+	done();
+      });
+      searcher.start();
+    });
+    
 
   });
 

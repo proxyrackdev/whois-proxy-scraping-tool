@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha test/ --exit",
-    "start": "node index.js --mode file --input domains.txt"
+    "start": "node index.js --mode file --input domains.txt --output result.txt"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "argparse": "^1.0.10",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
+    "random-item": "^1.0.0",
     "sinon": "^6.1.4",
     "whois": "^2.6.0"
   }

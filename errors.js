@@ -20,16 +20,35 @@ class NotFound extends WhoisError {
   constructor(err) {
     super(err);
   }
+
+  toString() {
+    return 'Error: not found';
+  }
 }
 
 class ProxyNotFound extends WhoisError {
   constructor(err) {
     super(err);
   }
+
+  toString() {
+    return 'Error: Proxy not found';
+  }
+}
+
+class DbNotConnected extends WhoisError {
+  constructor(err) {
+    super(err);
+  }
+
+  toString() {
+    return 'Error: database not connected';
+  }
 }
 
 module.exports = {
   WhoisError,
   NotFound,
-  ProxyNotFound
+  ProxyNotFound,
+  DbNotConnected
 };

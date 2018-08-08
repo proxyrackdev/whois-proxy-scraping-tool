@@ -20,6 +20,13 @@ function parseArgs() {
     }
   );
 
+  parser.addArgument(
+    '--output',
+    {
+      help: 'path to output file'
+    }
+  );
+
   const args = parser.parseArgs();
   return args;
 }
