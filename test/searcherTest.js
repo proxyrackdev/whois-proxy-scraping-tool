@@ -101,7 +101,7 @@ describe('Searcher', () => {
       search.onCall(3).callsFake(() => {
 	clock.tick(10 * 1000);
 	const progress = searcher.getProgress();
-	expect(10 * 1000).to.equal(progress.elapsedTime);
+	expect(10).to.equal(progress.elapsedTime);
 	done();
       });
       searcher.start();
@@ -113,7 +113,8 @@ describe('Searcher', () => {
       search.onCall(4).callsFake(() => {
 	clock.tick(10 * 1000);
 	const progress = searcher.getProgress();
-	expect(15000).to.equal(progress.remainingTime);
+	console.log(progress);
+	expect(15).to.equal(progress.remainingTime);
 	done();
       });
       searcher.start();

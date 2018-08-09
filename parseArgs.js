@@ -27,6 +27,28 @@ function parseArgs() {
     }
   );
 
+  parser.addArgument(
+    '--port',
+    {
+      help: 'Which port to listen when in server mode'
+    }
+  );
+
+  parser.addArgument(
+    '--ip',
+    {
+      help: 'Which IP to bind when in server mode',
+      defaultValue: '0.0.0.0'
+    }
+  );
+
+  parser.addArgument(
+    '--num-threads',
+    {
+      help: 'Number of threads per search'
+    }
+  );
+
   const args = parser.parseArgs();
   return args;
 }

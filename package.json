@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha test/ --exit",
-    "start": "node index.js --mode file --input domains.txt --output result.txt"
+    "start": "node index.js --mode file --input domains.txt --output result.txt",
+    "startServer": "node index.js --mode server --port 8080"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "argparse": "^1.0.10",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
+    "mkdirp": "^0.5.1",
     "random-item": "^1.0.0",
     "sinon": "^6.1.4",
     "whois": "^2.6.0"

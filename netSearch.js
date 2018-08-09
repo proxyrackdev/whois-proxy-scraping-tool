@@ -29,7 +29,6 @@ function doSearch(domain, {ip, port, user, pass, version}) {
     resolve = res;
     reject = rej;
   });
-  console.log(options.proxy);
   whois.lookup(domain, options, (err, data) => {
     if (err) {
       return reject(err);

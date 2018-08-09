@@ -7,7 +7,10 @@ const config = {
   },
   proxies: {
     path: 'proxies.json'
-  }
+  },
+  numThreads: 1,                        // number of threads per search
+  outputDir: './results',
+  outputUrl: '/results/'
 };
 
 module.exports = config;
