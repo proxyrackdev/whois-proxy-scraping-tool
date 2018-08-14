@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha test/ --exit",
-    "start": "node index.js --mode file --input domains.txt --output result.txt",
+    "start": "node index.js --mode file --input domains.txt --output result.txt --output-available available.txt --output-registered registered.txt",
     "startServer": "node index.js --mode server --port 8080"
   },
   "author": "",

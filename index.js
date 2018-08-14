@@ -1,5 +1,6 @@
 'use strict';
 
+const assert = require('assert');
 const mongooseConnect = require('./mongooseConnect');
 const inject = require('./inject');
 const config = require('./config');
@@ -22,9 +23,12 @@ function startServerMode({ip, port}) {
   server.start({ip, port});
 }
 
-function startFileMode(domainsPath, outputPath, numThreads) {
+function startFileMode(domainsPath, outputPath, availablePath, registeredPath,
+		       numThreads) {
   const domains = getDomains(domainsPath);
-  const {id, onFinish} = lookupService.startSearch({domains, outputPath});
+ 
+  const {id, onFinish} = lookupService.startSearch({domains, outputPath, numThreads,
+						    availablePath, registeredPath});
   setInterval(() => {
     const {total, finished, success, error, elapsedTime, remainingTime} =
 	  lookupService.getSearch(id);
@@ -85,9 +89,11 @@ function main() {
   if (args.mode === 'file') {
     const path = args.input;
     const outputPath = args.output;
-    const numThreads = args.numThreads || config.numThreads;
+    const numThreads = args.num_threads || config.numThreads;
+    const availablePath = args.output_available;
+    const registeredPath = args.output_registered;
     config.numThreads = numThreads;
-    startFileMode(path, outputPath, numThreads);
+    startFileMode(path, outputPath, availablePath, registeredPath, numThreads);
     return;
   }
 

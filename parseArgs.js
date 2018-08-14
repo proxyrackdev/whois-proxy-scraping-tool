@@ -16,16 +16,30 @@ function parseArgs() {
   parser.addArgument(
     '--input',
     {
-      help: 'path to domains file'
+      help: 'Path to domains file'
     }
   );
 
   parser.addArgument(
     '--output',
     {
-      help: 'path to output file'
+      help: 'Path to output file'
     }
   );
+
+  parser.addArgument(
+    '--output-available',
+    {
+      help: 'List of available domains'
+    }
+  ),
+
+  parser.addArgument(
+    '--output-registered',
+    {
+      help: 'List of registered domains'
+    }
+  ),
 
   parser.addArgument(
     '--port',
