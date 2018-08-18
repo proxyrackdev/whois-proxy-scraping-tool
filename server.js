@@ -26,6 +26,11 @@ class Server {
   }
 
   _addRoutes() {
+    this._app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      next();
+    });
+
     this._app.use(config.outputUrl, express.static(config.outputDir));
     this._app.use('/lookups', lookupRoutes);
   }

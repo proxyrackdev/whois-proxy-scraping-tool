@@ -44,9 +44,16 @@ function parseArgs() {
   parser.addArgument(
     '--port',
     {
-      help: 'Which port to listen when in server mode'
+      help: 'API port, when in server mode'
     }
   );
+
+  parser.addArgument(
+    '--web-port',
+    {
+      help: 'Web port, when in server mode'
+    }
+  ),
 
   parser.addArgument(
     '--ip',

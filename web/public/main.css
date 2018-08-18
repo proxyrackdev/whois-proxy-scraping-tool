@@ -1,0 +1,55 @@
+body {
+    background-color: #c6cdce;
+    text-align: center;
+    margin: 0;
+    padding: 5%;
+}
+
+
+#container {
+    width: 50%;
+    margin: 0%;
+    margin-left: 25%;    
+    height: 90%;
+    overflow: auto;
+}
+
+#studyURL {
+    width: 300px;
+    padding: 5px;
+}
+
+#submitButton {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.row {
+    margin: 5px;
+    padding: 10px;
+    width: 40%;
+    display: inline-block;
+}
+
+.row span {
+    margin: 4px;
+}
+
+.row a {
+    margin: 4px
+}
+
+.row span {
+    font-size: 20;
+    
+}
+
+.topRow {
+    height: auto;
+}
+.left {
+    width: 50%;
+}
+.right {
+    width: 50%;
+}

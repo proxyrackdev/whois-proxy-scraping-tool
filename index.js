@@ -1,5 +1,6 @@
 'use strict';
 
+const cp = require('child_process');
 const assert = require('assert');
 const mongooseConnect = require('./mongooseConnect');
 const inject = require('./inject');
@@ -19,8 +20,22 @@ function getDomains(domainsPath) {
   return domains;
 }
 
+
+function startWebServer(port) {
+  const args = [
+    port
+  ];
+  const opts = {
+    cwd: './web',
+    silent: false
+  };
+  cp.fork('index.js', args, opts);
+  console.log('forked');
+}
+
 function startServerMode({ip, port}) {
-  server.start({ip, port});
+  server.start({ip, port});	// starts API server
+  startWebServer();
 }
 
 function startFileMode(domainsPath, outputPath, availablePath, registeredPath,
@@ -100,7 +115,8 @@ function main() {
   if (args.mode === 'server') {
     const port = args.port;
     const ip = args.ip;
-    startServerMode({ip, port});
+    const webPort = args.web_port;
+    startServerMode({ip, port, webPort});
   };
 
 }

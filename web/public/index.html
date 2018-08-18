@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css", href="main.css">
+    <title> Whois lookup </title>
+  </head>
+  <body>
+    <h2>Domains:</h2>
+    <p class="topRow">
+      <textarea id="domains" rows="20" cols="50" placeholder="Paste list of domains here and click lookup"></textarea>
+    </p>
+    <button id="submitButton"> Lookup </button>
+    <div id="container" class="container">
+      <p class="row">
+	<span id="progress">  </span>
+      </p> <br />
+      <p class="row">
+	<span id="time">  </span>
+      </p> <br />
+
+      <p class="row">
+	<a id="results" href="google.com" target="_blank"> </a>
+      </p> <br />
+      <p class="row">
+	<a id="registered" href="google.com" target="_blank"> </a>
+      </p> <br />
+      <p class="row">
+	<a id="available" href="google.com" target="_blank"> </a> 
+      </p> <br />
+    </div>
+    <script src="main.js"> </script>
+  </body>
+</html>
