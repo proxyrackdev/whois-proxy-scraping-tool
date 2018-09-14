@@ -1,11 +1,13 @@
 body {
-    background-color: #c6cdce;
+    background-color: #ffffff;
     text-align: center;
     margin: 0;
     padding: 5%;
 }
 
-
+#logo {
+    width:250px;
+}
 #container {
     width: 50%;
     margin: 0%;

@@ -14,8 +14,11 @@
     "argparse": "^1.0.10",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
+    "express": "^4.16.3",
     "mkdirp": "^0.5.1",
+    "mongoose": "^5.2.14",
     "random-item": "^1.0.0",
+    "shortid": "^2.2.13",
     "sinon": "^6.1.4",
     "whois": "^2.6.0"
   }
